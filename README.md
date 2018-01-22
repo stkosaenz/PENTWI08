@@ -1,7 +1,7 @@
 # PENTWI08
 Mastering Angular Series
 
-#Contents
+# Contents
 * [Starter:](https://github.com/training4developers/mastering-angular-starter)
 
 * [Components](MasterAngular01Components)
