@@ -1,0 +1,21 @@
+import { Component } from "@angular/core";
+
+@Component({
+    selector: "main",
+    template: `
+        <div>
+            <span>{{message | lowercase }}</span>
+            <br />
+            <input type="text" [(ngModel)]="message"><br /><br />
+            <div>{{ someNumber | number: '2.2-2' }}</div>
+            <div>{{ someDate | date: 'HH:mm:ss' }}</div>
+            <div>{{ someCurrency | currency: 'EUR':true: '1.0-0'}}</div>
+        </div>`,
+})
+export class AppComponent {
+
+    public message: string = "Hello World!";
+    public someNumber: number = 3.678345;
+    public someDate: Date = new Date();
+    public someCurrency: number = 34.56;
+}

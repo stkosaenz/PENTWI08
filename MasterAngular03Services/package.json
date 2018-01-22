@@ -1,0 +1,115 @@
+{
+  "name": "mastering-angular-starter",
+  "version": "1.2.0",
+  "description": "Demonstration web application using Angular 2",
+  "scripts": {
+    "start": "npm run dev",
+    "test": "karma start ./config/karma.conf.js",
+    "clean": "rimraf dist",
+    "dev": "npm run clean && concurrently \"npm run web-dev\" \"npm run rest\"",
+    "prod": "npm run clean && concurrently \"npm run web-prod\" \"npm run rest\"",
+    "web-dev": "webpack-dev-server --config ./config/webpack.dev.js",
+    "web-prod": "webpack-dev-server --config ./config/webpack.prod.js",
+    "rest": "json-server --watch --port 3010 db.json",
+    "webpack-dev:w": "webpack --config ./config/webpack.dev.js --watch",
+    "webpack-dev": "webpack --config ./config/webpack.dev.js",
+    "webpack-prod": "webpack --config ./config/webpack.prod.js",
+    "webpack-test": "webpack --config ./config/webpack.test.js",
+    "tdd": "npm test -- --auto-watch --no-single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/training4developers/mastering-angular-starter.git"
+  },
+  "keywords": [
+    "angular2",
+    "typescript",
+    "angular"
+  ],
+  "author": "Eric W. Greene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/training4developers/mastering-angular-starter/issues"
+  },
+  "homepage": "https://github.com/training4developers/mastering-angular-starter#readme",
+  "devDependencies": {
+    "@types/core-js": "0.9.43",
+    "@types/jasmine": "2.6.0",
+    "@types/node": "8.0.31",
+    "autoprefixer": "7.1.4",
+    "babel-eslint": "8.0.1",
+    "bootstrap": "4.0.0-beta",
+    "concurrently": "3.5.0",
+    "copy-webpack-plugin": "4.1.0",
+    "core-js": "2.5.1",
+    "css-loader": "0.28.7",
+    "eslint": "4.8.0",
+    "extract-text-webpack-plugin": "3.0.0",
+    "file-loader": "1.1.3",
+    "html-loader": "0.5.1",
+    "html-webpack-plugin": "2.30.1",
+    "istanbul": "0.4.5",
+    "istanbul-instrumenter-loader": "3.0.0",
+    "jasmine-core": "2.8.0",
+    "json-server": "0.12.0",
+    "karma": "1.7.1",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.1.0",
+    "karma-junit-reporter": "1.2.0",
+    "karma-phantomjs-launcher": "1.0.4",
+    "karma-source-map-support": "1.2.0",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-webpack": "2.0.4",
+    "node-sass": "4.5.3",
+    "null-loader": "0.1.1",
+    "phantomjs-prebuilt": "2.1.15",
+    "postcss": "6.0.12",
+    "postcss-loader": "2.0.6",
+    "raw-loader": "0.5.1",
+    "resolve-url-loader": "2.1.0",
+    "rimraf": "2.6.2",
+    "sass-lint": "1.11.1",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.18.2",
+    "ts-helpers": "1.1.2",
+    "ts-loader": "2.3.7",
+    "tslint": "5.7.0",
+    "typescript": "2.5.3",
+    "uglify-js": "2.8.22",
+    "uglifyjs-webpack-plugin": "1.0.0-beta.2",
+    "url-loader": "0.5.9",
+    "webpack": "3.6.0",
+    "webpack-dev-server": "2.9.1",
+    "webpack-merge": "4.1.0",
+    "zone.js": "0.8.18"
+  },
+  "dependencies": {
+    "@angular/common": "4.4.4",
+    "@angular/compiler": "4.4.4",
+    "@angular/core": "4.4.4",
+    "@angular/forms": "4.4.4",
+    "@angular/http": "4.4.4",
+    "@angular/platform-browser": "4.4.4",
+    "@angular/platform-browser-dynamic": "4.4.4",
+    "@angular/router": "4.4.4",
+    "reflect-metadata": "0.1.10",
+    "rxjs": "5.4.3"
+  },
+  "devServer": {
+    "contentBase": "dist",
+    "historyApiFallback": true,
+    "port": 5000,
+    "proxy": {
+      "/widgets": {
+        "target": "http://localhost:3010"
+      },
+      "/books": {
+        "target": "http://localhost:3010"
+      },
+      "/geocoder": {
+        "target": "https://geocoding.geo.census.gov",
+        "changeOrigin": true
+      }
+    }
+  }
+}

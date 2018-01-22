@@ -1,0 +1,48 @@
+$group-border: #000;
+$error-border: #f00;
+$validated-status: #008000;
+
+form {
+    padding: 20px;
+}
+
+fieldset {
+
+    &[ngModelGroup='addressGroup'] {
+        border: 2px solid $group-border;
+        margin-top: 35px;
+        padding: 10px;
+        position: relative;
+
+        > legend {
+            left: 0;
+            position: absolute;
+            top: -35px;
+
+            > span {
+                color: $validated-status;
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+
+        > details {
+            border: 2px solid $error-border;
+            margin-bottom: 10px;
+            padding: 5px;
+
+            > summary {
+                outline: none;
+            }
+
+            > ul {
+                margin: 0;
+            }
+        }
+
+    }
+
+    &.ng-valid > .errors { display: none; }
+
+    &.ng-invalid > legend > span { display: none; }
+}
